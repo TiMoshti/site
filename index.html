@@ -1,43 +1,68 @@
 Ich bin der TT
-// Funktion zum Hinzufügen
-function add(x, y) {
-  return x + y;
-}
-
-// Funktion zum Subtrahieren
-function subtract(x, y) {
-  return x - y;
-}
-
-// Funktion zum Multiplizieren
-function multiply(x, y) {
-  return x * y;
-}
-
-// Funktion zum Dividieren
-function divide(x, y) {
-  if (y === 0) {
-    return "Error! Division by zero.";
-  } else {
-    return x / y;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+  .calculator {
+    width: 250px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
   }
-}
-
-// Hauptfunktion, um Berechnungen durchzuführen
-function calculate(operator, x, y) {
-  switch (operator) {
-    case "+":
-      return add(x, y);
-    case "-":
-      return subtract(x, y);
-    case "*":
-      return multiply(x, y);
-    case "/":
-      return divide(x, y);
-    default:
-      return "Invalid operator";
+  input[type="text"], input[type="button"] {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 18px;
   }
-}
+</style>
+</head>
+<body>
 
-// Beispielaufruf
-console.log(calculate("+", 5, 3)); // Ausgabe: 8
+<div class="calculator">
+  <input type="text" id="display" readonly>
+  <br>
+  <input type="button" value="7" onclick="addToDisplay('7')">
+  <input type="button" value="8" onclick="addToDisplay('8')">
+  <input type="button" value="9" onclick="addToDisplay('9')">
+  <input type="button" value="+" onclick="addToDisplay('+')">
+  <br>
+  <input type="button" value="4" onclick="addToDisplay('4')">
+  <input type="button" value="5" onclick="addToDisplay('5')">
+  <input type="button" value="6" onclick="addToDisplay('6')">
+  <input type="button" value="-" onclick="addToDisplay('-')">
+  <br>
+  <input type="button" value="1" onclick="addToDisplay('1')">
+  <input type="button" value="2" onclick="addToDisplay('2')">
+  <input type="button" value="3" onclick="addToDisplay('3')">
+  <input type="button" value="*" onclick="addToDisplay('*')">
+  <br>
+  <input type="button" value="C" onclick="clearDisplay()">
+  <input type="button" value="0" onclick="addToDisplay('0')">
+  <input type="button" value="=" onclick="calculate()">
+  <input type="button" value="/" onclick="addToDisplay('/')">
+</div>
+
+<script>
+  function addToDisplay(value) {
+    document.getElementById('display').value += value;
+  }
+
+  function clearDisplay() {
+    document.getElementById('display').value = '';
+  }
+
+  function calculate() {
+    var expression = document.getElementById('display').value;
+    var result = eval(expression);
+    document.getElementById('display').value = result;
+  }
+</script>
+
+</body>
+</html>
