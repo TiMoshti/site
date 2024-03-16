@@ -1,1 +1,43 @@
 Ich bin der TT
+// Funktion zum Hinzufügen
+function add(x, y) {
+  return x + y;
+}
+
+// Funktion zum Subtrahieren
+function subtract(x, y) {
+  return x - y;
+}
+
+// Funktion zum Multiplizieren
+function multiply(x, y) {
+  return x * y;
+}
+
+// Funktion zum Dividieren
+function divide(x, y) {
+  if (y === 0) {
+    return "Error! Division by zero.";
+  } else {
+    return x / y;
+  }
+}
+
+// Hauptfunktion, um Berechnungen durchzuführen
+function calculate(operator, x, y) {
+  switch (operator) {
+    case "+":
+      return add(x, y);
+    case "-":
+      return subtract(x, y);
+    case "*":
+      return multiply(x, y);
+    case "/":
+      return divide(x, y);
+    default:
+      return "Invalid operator";
+  }
+}
+
+// Beispielaufruf
+console.log(calculate("+", 5, 3)); // Ausgabe: 8
